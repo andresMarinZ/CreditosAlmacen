@@ -8,14 +8,27 @@ import { CreditoInterface } from '../interface/credito.interface';
   styleUrls: ['./buscar.component.scss']
 })
 export class BuscarComponent implements OnInit {
-  constructor() { }
-
+  public creditos;
+  constructor(public _arrayCreditos:CreditosService) { }
   ngOnInit(): void {
 
   }
 
   buscarRestaurante(texto:any){
-    console.log(texto);
+    this.creditos = [];
+    if (texto.length > 0) {
+      let termino = texto.toLowerCase();
+      for (let res of this._arrayCreditos.arrayCreditos) {
+        let nombre = res.nombres.toLowerCase();
+        if (nombre.indexOf( termino ) >= 0) {
+          this.creditos.push(res)
+        }
+      }
+      this._arrayCreditos.creditos$.emit(this.creditos);
+    }else{
+      this.creditos = this._arrayCreditos.arrayCreditos;
+      this._arrayCreditos.creditos$.emit(this.creditos);
+    }
   }
 
   

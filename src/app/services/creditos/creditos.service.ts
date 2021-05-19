@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable,EventEmitter } from '@angular/core';
 import { CreditoInterface } from '../../interface/credito.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CreditosService {
-  public creditosArr:CreditoInterface[] = [];
+  creditos$ = new EventEmitter();
   constructor() { }
 
   public arrayCreditos:CreditoInterface[] = [
@@ -55,5 +55,4 @@ export class CreditosService {
       numeroCuotas:48
     }
   ];
-
 }
