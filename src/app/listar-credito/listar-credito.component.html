@@ -1,0 +1,50 @@
+<app-buscar></app-buscar>
+<div class="row">
+    <div class="col-12">
+        <div class="table-responsive">
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Numero Celular</th>
+                        <th>Correo electrónico</th>
+                        <th>Tipo de identificación</th>
+                        <th>Numero de identificación</th>
+                        <th>Dirección de residencia</th>
+                        <th>Ciudad</th>
+                        <th>Barrio</th>
+                        <th>Valor del credito</th>
+                        <th>Numero de cuotas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of _arrayCreditos.arrayCreditos; let i = index">
+                        <td>
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" (change)="radio(i,item)">
+                        </td>
+                        <td>{{item.nombres | titlecase}}</td>
+                        <td>{{item.apellidos | titlecase}}</td>
+                        <td>{{item.numeroDeCelular}}</td>
+                        <td>{{item.correoElectronico}}</td>
+                        <td>{{item.tipoDeIdentificacion}}</td>
+                        <td>{{item.numeroDeIdentificacion}}</td>
+                        <td>{{item.direccionResidencia | titlecase}}</td>
+                        <td>{{item.ubicacion.ciudad | titlecase}}</td>
+                        <td>{{item.ubicacion.barrio | titlecase}}</td>
+                        <td>{{item.valorTotalCredito}}</td>
+                        <td>{{item.numeroCuotas}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="contenedorBotones">
+            <button (click)="actualizarCredito()">Actualizar</button>
+            <button (click)="quitarCredito(idCredito)">Eliminar</button>
+            <button>Crear credito</button>
+        </div>
+    </div>
+</div>

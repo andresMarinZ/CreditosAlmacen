@@ -1,0 +1,84 @@
+<div class="container contenedorCotizacion">
+    <form [formGroup]="creditoNuevo" (ngSubmit)="crearNuevoCredito()">
+        <div class="row">
+
+            <div class="col-12 col-md-6 contenedorInput">
+                <label class="form-label">Nombres</label>
+                <input type="text" class="form-control" placeholder="Nombres" formControlName="nombres" [class.is-invalid]="nombreNoValido">
+                <small *ngIf="nombreNoValido" class="text-danger">El nombre es requerido</small>
+            </div>
+
+            <div class="col-12 col-md-6 contenedorInput">
+                <label class="form-label">Apellidos</label>
+                <input type="text" class="form-control" placeholder="Apellidos" formControlName="apellidos" [class.is-invalid]="apellidosNoValido">
+                <small *ngIf="apellidosNoValido" class="text-danger">El apellido es requerido</small>
+            </div>
+
+            <div class="col-12 col-md-6 contenedorInput">
+                <label class="form-label">Numero de celular</label>
+                <input type="number" class="form-control" placeholder="Celular" formControlName="numeroDeCelular" [class.is-invalid]="numeroCelularNoValido">
+                <small *ngIf="numeroCelularNoValido" class="text-danger">El numero de celular es requerido</small>
+            </div>
+
+            <div class="col-12 col-md-6 contenedorInput">
+                <label class="form-label">Correo Electronico</label>
+                <input type="text" class="form-control" placeholder="Correo" formControlName="correoElectronico" [class.is-invalid]="correoElectronicoNoValido">
+                <small *ngIf="correoElectronicoNoValido" class="text-danger">Correo no valido</small>
+            </div>
+
+            <div class="col-12 col-md-6 contenedorInput">
+                <label class="form-label">Tipo de identificación</label>
+                <select class="form-control" formControlName="tipoDeIdentificacion" [class.is-invalid]="tipoIdentificacionNoValido">
+                    <option *ngFor="let item of arrayTipoDocumento" value="{{item}}" >{{item}}</option>
+                </select>
+                <small *ngIf="tipoIdentificacionNoValido" class="text-danger">Seleccione un tipo de documento</small>
+            </div>
+
+            <div class="col-12 col-md-6 contenedorInput">
+                <label class="form-label">Numero de identificación</label>
+                <input type="number" class="form-control" placeholder="Numero de identificación" formControlName="numeroDeIdentificacion" [class.is-invalid]="numeroIdentificacionNoValido">
+                <small *ngIf="numeroIdentificacionNoValido" class="text-danger">Ingrese su numero de identificación</small>
+            </div>
+
+            <div class="col-12 col-md-6 contenedorInput">
+                <label class="form-label">Dirección de residencia</label>
+                <input type="text" class="form-control" placeholder="Dirección de Residencia" formControlName="direccionResidencia" [class.is-invalid]="direccionResidenciaNoValido">
+                <small *ngIf="direccionResidenciaNoValido" class="text-danger">Ingrese la dirección de residencia</small>
+            </div>
+
+            <div class="col-12 col-md-6 contenedorInput" formGroupName="ubicacion">
+                <label class="form-label">Ciudad</label>
+                <input type="text" class="form-control" placeholder="Ciudad" formControlName="ciudad" [class.is-invalid]="ciudadNoValido">
+                <small *ngIf="ciudadNoValido" class="text-danger">Ingrese la ciudad de residencia</small>
+            </div>
+
+            <div class="col-12 col-md-6 contenedorInput" formGroupName="ubicacion">
+                <label class="form-label">Barrio</label>
+                <input type="text" class="form-control" placeholder="Barrio" formControlName="barrio" [class.is-invalid]="barrioNoValido">
+                <small *ngIf="barrioNoValido" class="text-danger">Ingrese el barrio de residencia</small>
+            </div>
+
+            <div class="col-12 col-md-6 contenedorInput">
+                <label class="form-label">Valor total de credito </label>
+                <input type="number" class="form-control" placeholder="Valor total credito" formControlName="valorTotalCredito" [class.is-invalid]="valorTotalCreditoNoValido">
+                <small *ngIf="valorTotalCreditoNoValido" class="text-danger">Ingrese el monto del credito</small>
+            </div>
+
+            <div class="col-12 col-md-6 contenedorInput">
+                <label class="form-label">Número de cuotas</label>
+                <select class="form-control" formControlName="numeroCuotas" [class.is-invalid]="numeroCuotasNoValido">
+                    <option *ngFor="let item of arrayNumeroCuotas" value="{{item}}">{{item}}</option>
+                </select>
+                <small *ngIf="numeroCuotasNoValido" class="text-danger">Ingrese el numero de cuotas</small>
+            </div>
+
+
+            <div class="col-12 contenedorSubmit">
+                <button type="submit" *ngIf="!actualizar else buttonActualizar">Guardar credito</button>
+                <ng-template #buttonActualizar>
+                    <button type="submit">Actualizar</button>
+                </ng-template>
+            </div>
+        </div>
+    </form>
+</div>

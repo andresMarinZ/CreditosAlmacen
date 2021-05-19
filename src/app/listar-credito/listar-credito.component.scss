@@ -1,0 +1,26 @@
+@import "../../style/settings/variables";
+th {
+    border-right: 1px solid $color-principal;
+    margin: 20px;
+}
+
+th:last-child {
+    border-right: 1px solid $gris-claro;
+}
+
+.contenedorBotones {
+    display: flex;
+    justify-content: flex-end;
+    button {
+        margin: 10px;
+        border-radius: 5px;
+        padding: 5px;
+        border: 1px solid $color-principal;
+        background-color: $color-blanco;
+        color: $color-principal;
+    }
+    button:hover {
+        background-color: $color-principal;
+        color: $color-blanco;
+    }
+}

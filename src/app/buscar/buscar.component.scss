@@ -1,0 +1,13 @@
+@import "../../style/settings/variables";
+.contenedorBuscar {
+    margin: 30px 0px;
+    .inputBuscar {
+        border: 1px solid $color-principal;
+        padding: 5px 10px 5px 40px;
+    }
+    .iconoBuscar {
+        color: $color-principal;
+        position: absolute;
+        padding-left: 5px;
+    }
+}

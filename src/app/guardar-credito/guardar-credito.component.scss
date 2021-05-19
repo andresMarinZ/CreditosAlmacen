@@ -1,0 +1,23 @@
+@import "../../style/settings/variables";
+.contenedorCotizacion {
+    margin-top: 40px;
+    .contenedorInput {
+        // margin: 5px;
+        padding: 10px;
+    }
+    .contenedorSubmit {
+        text-align: center;
+        margin: 10px 0px;
+        button {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid $color-principal;
+            background-color: $color-blanco;
+            color: $color-principal;
+        }
+        button:hover {
+            background-color: $color-principal;
+            color: $color-blanco;
+        }
+    }
+}
