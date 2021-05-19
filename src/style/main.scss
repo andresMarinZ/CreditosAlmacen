@@ -1,0 +1,14 @@
+@import "../style/settings/variables";
+.boton-principal {
+    margin: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid $color-principal;
+    background-color: $color-blanco;
+    color: $color-principal;
+}
+
+.boton-principal:hover {
+    background-color: $color-principal;
+    color: $color-blanco;
+}

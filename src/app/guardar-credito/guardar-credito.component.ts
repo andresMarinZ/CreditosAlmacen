@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { CreditosService } from '../services/creditos/creditos.service';
 import { CreditoInterface } from '../interface/credito.interface';
 import { Router } from '@angular/router';
+import { AlertasService } from '../services/alertas/alertas.service';
 
 @Component({
   selector: 'app-guardar-credito',
@@ -17,7 +18,8 @@ export class GuardarCreditoComponent implements OnInit {
   public actualizar:Boolean = false;
   constructor(private fb:FormBuilder,
               private _arrayCreditos:CreditosService,
-              private router:Router) { 
+              private router:Router,
+              private _alertas:AlertasService) { 
   }
 
   ngOnInit(): void {
@@ -127,12 +129,13 @@ export class GuardarCreditoComponent implements OnInit {
       }
       this._arrayCreditos.arrayCreditos.push(this.creditoNuevo.value);
       this.creditoNuevo.reset();
+      this._alertas.completado('El credito se creo exitosamente');
     }else{
       console.log(this.creditoNuevo.value);
       this._arrayCreditos.arrayCreditos.splice(JSON.parse(localStorage.getItem('idCredito')),1);
       this._arrayCreditos.arrayCreditos.push(this.creditoNuevo.value);
       this.removerLocalstorage();
-      this.router.navigateByUrl('/listar');
+      this._alertas.completado('El credito se actualizo exitosamente');
     }
   }
 

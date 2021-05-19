@@ -1,5 +1,7 @@
 @import "../../style/settings/variables";
 .contenedorBuscar {
+    display: flex;
+    align-items: center;
     margin: 30px 0px;
     .inputBuscar {
         border: 1px solid $color-principal;

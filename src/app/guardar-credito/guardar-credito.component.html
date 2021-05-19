@@ -74,9 +74,9 @@
 
 
             <div class="col-12 contenedorSubmit">
-                <button type="submit" *ngIf="!actualizar else buttonActualizar">Guardar credito</button>
+                <button class="boton-principal" type="submit" *ngIf="!actualizar else buttonActualizar">Guardar credito</button>
                 <ng-template #buttonActualizar>
-                    <button type="submit">Actualizar</button>
+                    <button class="boton-principal" type="submit">Actualizar</button>
                 </ng-template>
             </div>
         </div>

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
 import { CreditosService } from '../creditos/creditos.service';
 @Injectable({
@@ -6,22 +7,10 @@ import { CreditosService } from '../creditos/creditos.service';
 })
 export class AlertasService {
 
-  constructor(public _arrayCreditos:CreditosService) { }
+  constructor(public _arrayCreditos:CreditosService,
+              public router:Router) { }
 
-  completado2(id:number){
-    Swal.fire({
-      text:'Seguro',
-      icon:'question'
-    }).then((result) =>{
-      if (result) {
-        this._arrayCreditos.arrayCreditos.splice(id,1);
-        console.log('eliminado');
-      }else{
-        console.log('Salio');
-        
-      }
-    })
-  }
+  
 
   error(mensaje){
     Swal.fire({
@@ -31,12 +20,29 @@ export class AlertasService {
     })
   }
 
+  completado(mensaje){
+    const swalWithBootstrapButtons1 = Swal.mixin({
+      customClass: {
+        confirmButton: 'boton-principal',
+      },
+      buttonsStyling: false
+    })
+    swalWithBootstrapButtons1.fire({
+      text:mensaje,
+      icon:'success'
+    }).then((result) =>{
+      if (result) {
+        this.router.navigateByUrl('/listar');
+      }
+    })
+  }
+
 
   eliminarCredito(id:number){
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
-        confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger'
+        confirmButton: 'boton-principal',
+        cancelButton: 'boton-principal'
       },
       buttonsStyling: false
     })

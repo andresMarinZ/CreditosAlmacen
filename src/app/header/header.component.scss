@@ -1,11 +1,15 @@
+@import "../../style/settings/variables";
 .contenedorMenu {
     padding: 10px;
+    background-color: $gris-claro;
+    display: flex;
+    align-items: center;
     a {
-        color: black;
+        color: $color-negro;
         text-decoration: none;
     }
     li:first-child {
-        border-right: 1px solid #0fbbb5;
+        border-right: 1px solid $color-principal;
         padding-right: 10px;
     }
     li:first-child a::before {
@@ -13,6 +17,6 @@
         font-weight: 900;
         content: "\f51e";
         padding-right: 5px;
-        color: #0fbbb5;
+        color: $color-principal;
     }
 }
